@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 
 function restrict() {
-  const authError = { message: "Credentials Invalid" };
+  const authError = { message: "Credentials Invalid, thou shall not pass" };
   return async (req, res, next) => {
     try {
       const token = req.headers.authorization;
@@ -20,7 +20,9 @@ function restrict() {
         next();
       });
     } catch (err) {
-      res.status(403).json({ message: "You're not authorized" });
+      res
+        .status(403)
+        .json({ message: "You're not authorized, thou will not pass" });
     }
   };
 }

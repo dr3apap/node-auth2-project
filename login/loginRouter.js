@@ -6,7 +6,7 @@ const jwt = require("jsonwebtoken");
 
 const router = express.Router();
 router.post("/", (req, res) => {
-  const authError = { message: "Invalid credentials" };
+  const authError = { message: "Invalid credentials, thous shall not pass" };
   const { username, password } = req.body;
   Users.findBy({ username })
     .then(([user]) => {
@@ -26,18 +26,8 @@ router.post("/", (req, res) => {
         .json({ message: `Welcome ${user.username}!`, token: token });
     })
     .catch(error => {
-      res.status(401).json({ message: "Credentials required" });
+      res.status(401).json({ message: "Credentials required for passage!" });
     });
 });
 
 module.exports = router;
-
-// function generateJwt() {
-//   token = {
-//     payload: {
-//       secret,
-//     },
-//   };
-
-//   return jwt.verify(payload, secret, signature);
-// }
