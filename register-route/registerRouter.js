@@ -5,7 +5,7 @@ const Users = require("../users/users-model");
 
 const router = express.Router();
 
-router.post("/", (req, res) => {
+router.post("/", (req, res, next) => {
   const user = req.body;
   const psswdHashed = bcrypt.hashSync(user.password, 10);
   user.password = psswdHashed;

@@ -20,10 +20,7 @@ router.post("/", (req, res) => {
         userId: user.id,
         userRole: "normal", // this usually come from the database
       };
-      const token = jwt.sign(
-        payload,
-        "keep it secret, keep it secure and safe",
-      );
+      const token = jwt.sign(payload, process.env.JWT_SECRET);
       res
         .status(201)
         .json({ message: `Welcome ${user.username}!`, token: token });

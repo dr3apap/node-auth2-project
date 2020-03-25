@@ -5,7 +5,7 @@
   "main": "server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "nodemon index.js"
+    "server": "nodemon -r dotenv/config index.js"
   },
   "repository": {
     "type": "git",
@@ -20,6 +20,7 @@
   "homepage": "https://github.com/dr3apap/node-auth2-project#readme",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "helmet": "^3.22.0",
     "jsonwebtoken": "^8.5.1",
