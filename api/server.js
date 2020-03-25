@@ -10,7 +10,7 @@ server.use(helmet());
 server.use(express.json());
 server.use("/api/login", loginRouter);
 server.use("/api/register", registerRouter);
-server.use("/api/users", usersRouter);
+server.use("/api/users", restrict(), usersRouter);
 
 server.use("/", (req, res) => {
   res.send(`<h1>It's all about Token and not Cookie</h1>`);
